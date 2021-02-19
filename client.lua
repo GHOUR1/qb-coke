@@ -67,7 +67,7 @@ Citizen.CreateThread(function()
 		if not inUse then
 			if dist <= 2.0 then
 				sleep = 5
-				DrawText3D(coord.x, coord.y, coord.z, 'Press ~g~[ E ]~w~ to rent a Plane for 2000')
+				DrawText3D(coord.x, coord.y, coord.z, 'Press ~g~[ E ]~w~ to rent a Plane for 1000')
 				if IsControlJustPressed(1, 51) then
 					QBCore.Functions.TriggerCallback('coke:pay', function(success)
 						if success then
@@ -106,7 +106,7 @@ AddEventHandler('coke:onUse', function()
 	Citizen.Wait(1000)
 	DoScreenFadeIn(2000)
 	if Config.useMythic then
-		QBCore.Functions.Notify("You are feeling normal now..", "success")
+		QBCore.Functions.Notify("Stress reduced..", "success")
 	end
 	SetPedArmour(crackhead, 0)
 	ClearTimecycleModifier()
@@ -120,7 +120,7 @@ function main()
 	Citizen.Wait(2000)
 	TriggerServerEvent('coke:updateTable', true)
 	if Config.useMythic then
-		QBCore.Functions.Notify("Go to the airfield.", "success")
+		QBCore.Functions.Notify("Go to the plane.", "success")
 	end
 	rand = math.random(1,#Config.locations)
 	location = Config.locations[rand]
@@ -179,7 +179,7 @@ function PlaneSpawn()
 	
     while true do
     	Citizen.Wait(1)
-    	 DrawText3D(location.parking.x, location.parking.y, location.parking.z, "Cocaine Plane.")
+    	 DrawText3D(location.parking.x, location.parking.y, location.parking.z, "Your Plane.")
 		 if #(GetEntityCoords(PlayerPedId()) - vector3(location.parking.x, location.parking.y, location.parking.z)) < 8.0 then
     	 	return
     	 end
